@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Duration is in minutes
 interface IStudySession {
     id: string;
     name: string;
     timeStarted: Date;
     timeEnded: Date;
-    duration: number;
 }
 
 interface IListOfStudySession {

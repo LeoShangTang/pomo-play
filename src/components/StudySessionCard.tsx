@@ -15,7 +15,7 @@ const StudySessionCard = ({studySession} : Props) => {
               {studySession.name}
             </Typography>
             <Typography variant="h5" component="div">
-              {studySession.duration}
+              {studySession.id}
             </Typography>
           </CardContent>
             <CardActions>
