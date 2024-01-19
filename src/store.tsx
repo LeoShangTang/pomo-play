@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import ListOfStudySessionReducer from "./Slices/ListOfStudySession";
+import ListOfTaskReducer from "./Slices/ListOfTask";
 
 const rootReducer = combineReducers({
-    listOfStudySession: ListOfStudySessionReducer,
+    listOfTask: ListOfTaskReducer,
 });
 
 export const store = configureStore({

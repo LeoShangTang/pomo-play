@@ -1,21 +1,21 @@
 import { Card, ListItem, Typography, CardContent, CardActions, IconButton} from "@mui/material"
-import { IStudySession } from "../Slices/ListOfStudySession"
+import { ITask } from "../Slices/ListOfTask"
 
 type Props = {
-    studySession: IStudySession;
+    task: ITask;
 }
 
-const StudySessionCard = ({studySession} : Props) => {
+const TaskCard = ({task} : Props) => {
     
     return (
         <ListItem sx={{ display: "flex" }}>
         <Card>
           <CardContent sx={{ alignSelf: "center" }}>
             <Typography variant="h5" component="div">
-              {studySession.name}
+              {task.name}
             </Typography>
             <Typography variant="h5" component="div">
-              {studySession.id}
+              {task.id}
             </Typography>
           </CardContent>
             <CardActions>
@@ -27,3 +27,5 @@ const StudySessionCard = ({studySession} : Props) => {
     </ListItem>
     )
 }
+
+export default TaskCard;
