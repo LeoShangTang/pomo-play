@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import { Card } from "@mui/material";
 import tasksSample from "./SampleData/tasksSample";
+import ListOfTaskCard from "./components/ListOfTaskCard";
 
 const App = () => {
     
@@ -11,7 +12,7 @@ const App = () => {
     })
     
     return (
-            <TaskCard task={tasksSample[0]}/>
+            <ListOfTaskCard />
     )
 }
 
