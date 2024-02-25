@@ -17,3 +17,7 @@
     - Ability to play music through spotify API
     - Play, skip, pause music
 
+- Personal Notes
+    - Use express js for other timer possibly...
+    - Timer countdown state should be locally possibly???
+    - Send notifications when reach possible break point. Like "20 min", "45" min, etc

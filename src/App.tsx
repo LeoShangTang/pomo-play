@@ -4,6 +4,7 @@ import { RootState } from "./store";
 import { Card } from "@mui/material";
 import tasksSample from "./SampleData/tasksSample";
 import ListOfTaskCard from "./components/ListOfTaskCard";
+import TimerCard from "./components/TimerCard";
 
 const App = () => {
     
@@ -12,7 +13,7 @@ const App = () => {
     })
     
     return (
-            <ListOfTaskCard />
+            <TimerCard time={25}/>
     )
 }
 
