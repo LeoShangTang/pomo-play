@@ -13,7 +13,15 @@ const App = () => {
     })
     
     return (
+        <div style={{
+            display: "flex",
+            flexDirection:"column",
+            alignItems: "center",
+            }}>
             <TimerCard time={25}/>
+            <ListOfTaskCard />
+        </div>
+            
     )
 }
 
