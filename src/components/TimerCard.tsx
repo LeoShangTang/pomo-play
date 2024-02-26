@@ -8,25 +8,32 @@ type Props = {
 
 const TimerCard = ({time} : Props) => {
     
-    const [seconds, setSeconds] = useState(60);
+    const [seconds, setSeconds] = useState(3);
     const [isRunning, setIsRunning] = useState(false);
 
+    let timerId: NodeJS.Timer | null | undefined =  null;
+
+    const startTimer = () => (
+        timerId = setInterval(() => {
+            setSeconds((prevSeconds) => (prevSeconds - 1));
+        }, 1000)
+    );
+        
+    const stopTimer = () => {
+        if (timerId !== null) {
+            clearInterval(timerId);
+        }
+    }
+
     useEffect(() => {
-        let timer: number | null = null;
 
         if (isRunning) {
-            timer = setInterval(()=> {
-                setSeconds((prevSeconds) => (prevSeconds - 1))
-            }, 1000) as any;
+            startTimer();
         }
-    
-        return () => {
-            if (timer !== null) {
-                clearInterval(timer);
-            }
-          };
 
-    },[isRunning])
+        return stopTimer;
+
+    },  [isRunning])
  
     return (
         <>
