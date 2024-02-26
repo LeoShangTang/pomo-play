@@ -19,7 +19,7 @@ const TaskCard = ({ task }: Props) => {
           </Typography> */}
         </CardContent>
         <CardActions>
-          <IconButton sx={{width:"10px"}}  onClick={() => { console.log("deleted") }}>
+          <IconButton onClick={() => { console.log("deleted") }}>
               Del
           </IconButton>
         </CardActions>

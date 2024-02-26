@@ -36,7 +36,6 @@ export const CountDownTimer = createSlice({
             const { timer } = action.payload;
             state.CurrentTimer = timer;
         },
-
     },
 })
 

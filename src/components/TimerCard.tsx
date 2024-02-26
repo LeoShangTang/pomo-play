@@ -15,7 +15,13 @@ const TimerCard = ({time} : Props) => {
 
     const startTimer = () => (
         timerId = setInterval(() => {
-            setSeconds((prevSeconds) => (prevSeconds - 1));
+            setSeconds((prevSeconds) => {
+                if (prevSeconds == 0) {
+                    stopTimer()
+                    return 0; // Should change timers once finished depending on timer type
+                }
+                return prevSeconds - 1;
+            });
         }, 1000)
     );
         
@@ -26,15 +32,12 @@ const TimerCard = ({time} : Props) => {
     }
 
     useEffect(() => {
-
         if (isRunning) {
             startTimer();
         }
-
         return stopTimer;
-
     },  [isRunning])
- 
+
     return (
         <>
             <Card
