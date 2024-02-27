@@ -2,32 +2,45 @@ import { Card, ListItem, Typography, CardContent, CardActions, IconButton} from 
 import { ITask } from "../Slices/ListOfTask"
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import { useDispatch } from "react-redux";
+import { removeTask } from "../Slices/ListOfTask";
 
 type Props = {
     task: ITask;
 }
 
+const taskCardStyle = {
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "space-between",
+  width: "100%",
+  backgroundColor: "transparent",
+  border: "1px solid white"
+}
+
 const TaskCard = ({ task }: Props) => {
+  const dispath = useDispatch();
+  
+  const handleDeleteTask = (id: string) => {
+    dispath(removeTask({id}));
+  }
 
   return (
-    <ListItem sx={{ display: "flex" }}>
-      <Card sx={{ width: "100%"}}>
+    <ListItem sx={{ display: "flex", }}>
+      <Card sx={taskCardStyle}>
         <CardContent sx={{ alignSelf: "center"}}>
-          <Typography variant="h6" component="div">
+          <Typography variant="h6" component="div" color="white">
             {task.name}
           </Typography>
-          {/* <Typography variant="h5" component="div">
-            {task.id}
-          </Typography> */}
         </CardContent>
         <CardActions>
+          <IconButton onClick={() => { handleDeleteTask(task.id)}}>
+              <DeleteIcon sx={{color: "white"}}/>
+          </IconButton>
           <IconButton onClick={() => { console.log("edited") }}>
-              <DeleteIcon />
+              <ModeEditIcon sx={{color: "white"}}/>
           </IconButton>
         </CardActions>
-        <IconButton onClick={() => { console.log("deleted") }}>
-              <ModeEditIcon/>
-          </IconButton>
       </Card>
     </ListItem>
   )

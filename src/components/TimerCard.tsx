@@ -47,8 +47,9 @@ const TimerCard = ({time} : Props) => {
                     alignItems: "center",
                     height: "200%",
                     width: "50%",
+                    backgroundColor:"transparent",
                 }}>
-                <Typography fontSize={100}>
+                <Typography fontSize={100} color="white">
                     {/* {time} */}
                     {seconds}
                 </Typography>

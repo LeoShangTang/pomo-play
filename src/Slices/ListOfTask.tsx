@@ -5,9 +5,9 @@ import taskSample from "../SampleData/tasksSample";
 interface ITask {
     id: string;
     name: string;
-    description: string;
-    timeStarted: Date;
-    timeEnded: Date;
+    // description: string;
+    // timeStarted: Date;
+    // timeEnded: Date;         Potential ideas
 }
 
 interface IListOfTask {

@@ -8,6 +8,7 @@ const cardStyle = {
     p: 1,
     width: "50%",
     height: "400px",
+    
     // "@media (max-width: 600px)": {
     //   width: "95%",
     //   height: 400,
@@ -24,7 +25,12 @@ const ListOfTaskCard = () => {
     })
 
     return (
-        <Card  sx={cardStyle}>
+        <Card  sx={{   borderRadius: "20px",
+        p: 1,
+        width: "50%",
+        height: "400px",
+        backgroundColor: "transparent",
+        }}>
             {listOfTask.map((task) => (
                 <List>
                     <TaskCard task={task}/>
