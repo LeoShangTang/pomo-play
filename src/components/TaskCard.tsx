@@ -1,5 +1,7 @@
 import { Card, ListItem, Typography, CardContent, CardActions, IconButton} from "@mui/material"
 import { ITask } from "../Slices/ListOfTask"
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
 type Props = {
     task: ITask;
@@ -19,10 +21,13 @@ const TaskCard = ({ task }: Props) => {
           </Typography> */}
         </CardContent>
         <CardActions>
-          <IconButton onClick={() => { console.log("deleted") }}>
-              Del
+          <IconButton onClick={() => { console.log("edited") }}>
+              <DeleteIcon />
           </IconButton>
         </CardActions>
+        <IconButton onClick={() => { console.log("deleted") }}>
+              <ModeEditIcon/>
+          </IconButton>
       </Card>
     </ListItem>
   )
