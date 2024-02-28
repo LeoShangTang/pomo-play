@@ -6,9 +6,9 @@ import TaskCard from "./TaskCard";
 const cardStyle = {
     borderRadius: "20px",
     p: 1,
-    width: "50%",
-    height: "400px",
-    
+    height: "250px",
+    backgroundColor: "transparent",
+    boxShadow:"none"
     // "@media (max-width: 600px)": {
     //   width: "95%",
     //   height: 400,
@@ -25,17 +25,14 @@ const ListOfTaskCard = () => {
     })
 
     return (
-        <Card  sx={{   borderRadius: "20px",
-        p: 1,
-        width: "50%",
-        height: "400px",
-        backgroundColor: "transparent",
-        }}>
-            {listOfTask.map((task) => (
-                <List>
-                    <TaskCard task={task}/>
-                </List>
-            ))}
+        <Card sx={cardStyle}>
+
+            <List sx={{ height: "100%", overflow: "auto" }}>
+                {listOfTask.map((task) => (
+                    <TaskCard task={task} />
+
+                ))}
+            </List>
         </Card>
     )
 }

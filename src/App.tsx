@@ -6,7 +6,7 @@ import tasksSample from "./SampleData/tasksSample";
 import ListOfTaskCard from "./components/ListOfTaskCard";
 import TimerCard from "./components/TimerCard";
 import backgroundImage from './Images/CurrWallpaper.png';
-
+import "./App.css";
 
 
 const backgroundStyles: React.CSSProperties = {
