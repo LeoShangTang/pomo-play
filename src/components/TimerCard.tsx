@@ -38,6 +38,21 @@ const TimerCard = ({time} : Props) => {
         return stopTimer;
     },  [isRunning])
 
+    // Ideas to display the timer!!!
+    const test = () => {
+        let minutes: number = Math.floor(seconds / 60);
+        let secondsToDisplay:number = seconds - minutes*60;
+        if (secondsToDisplay == 0) {
+            secondsToDisplay = 59;
+            minutes--;
+        }
+        // 00:00
+    }
+
+    // Another way is to have minutes and seconds as seperate states...
+    // We can pass minutes into TimerCard. If so, seconds = seconds - minutes*60;
+    // such that minutes = math.floor(seconds/60) if user puts in a fraction
+
     return (
         <>
             <Card
@@ -46,20 +61,21 @@ const TimerCard = ({time} : Props) => {
                     justifyContent: "center",
                     alignItems: "center",
                     height: "200%",
-                    width: "50%",
+                    width: "100%",
                     backgroundColor:"transparent",
                 }}>
-                <Typography fontSize={100} color="white">
+                <Typography fontSize={200} color="white">
                     {/* {time} */}
-                    {seconds}
+                    00:00
                 </Typography>
 
             </Card>
-            <Button onClick={() => { setIsRunning(!isRunning) }}>
+            <Button onClick={() => { setIsRunning(!isRunning) }}
+            sx={{color:"white"}}>
                 Pause/Start Timer
             </Button>
         </>
     )
 }
-
+// CHANGE BUTTON TO AN ICONBUTTON
 export default TimerCard;
