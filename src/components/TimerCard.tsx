@@ -8,7 +8,7 @@ type Props = {
 
 const TimerCard = ({time} : Props) => {
     
-    const [seconds, setSeconds] = useState(3);
+    const [seconds, setSeconds] = useState(60 * 5);
     const [isRunning, setIsRunning] = useState(false);
 
     let timerId: NodeJS.Timer | null | undefined =  null;
@@ -39,15 +39,15 @@ const TimerCard = ({time} : Props) => {
     },  [isRunning])
 
     // Ideas to display the timer!!!
-    const test = () => {
-        let minutes: number = Math.floor(seconds / 60);
-        let secondsToDisplay:number = seconds - minutes*60;
-        if (secondsToDisplay == 0) {
-            secondsToDisplay = 59;
-            minutes--;
-        }
-        // 00:00
-    }
+    // const test = () => {
+    //     let minutes: number = Math.floor(seconds / 60);
+    //     let secondsToDisplay:number = seconds - minutes*60;
+    //     if (secondsToDisplay == 0) {
+    //         secondsToDisplay = 59;
+    //         minutes--;
+    //     }
+    //     // 00:00
+    // }
 
     // Another way is to have minutes and seconds as seperate states...
     // We can pass minutes into TimerCard. If so, seconds = seconds - minutes*60;
@@ -63,10 +63,13 @@ const TimerCard = ({time} : Props) => {
                     height: "200%",
                     width: "100%",
                     backgroundColor:"transparent",
+                    boxShadow: "none"
                 }}>
                 <Typography fontSize={200} color="white">
+                
                     {/* {time} */}
-                    00:00
+                    {/* 00:00 */}
+                    {`${Math.floor(seconds / 60)}:${seconds - Math.floor(seconds / 60) *60}`}
                 </Typography>
 
             </Card>
