@@ -6,12 +6,12 @@ type Props = {
     time: number;
 }
 
+let timerId: NodeJS.Timer | null | undefined =  null;
+
 const TimerCard = ({time} : Props) => {
     
-    const [seconds, setSeconds] = useState(60 * 5);
+    const [seconds, setSeconds] = useState(6);
     const [isRunning, setIsRunning] = useState(false);
-
-    let timerId: NodeJS.Timer | null | undefined =  null;
 
     const startTimer = () => (
         timerId = setInterval(() => {
@@ -38,21 +38,25 @@ const TimerCard = ({time} : Props) => {
         return stopTimer;
     },  [isRunning])
 
-    // Ideas to display the timer!!!
-    // const test = () => {
-    //     let minutes: number = Math.floor(seconds / 60);
-    //     let secondsToDisplay:number = seconds - minutes*60;
-    //     if (secondsToDisplay == 0) {
-    //         secondsToDisplay = 59;
-    //         minutes--;
-    //     }
-    //     // 00:00
-    // }
+    // Potentially refactor!!!
+    const getFormatedMinutes = () => {
+        let minutes = Math.floor(seconds / 60);
+        if (minutes >= 10) {
+            return `${minutes}`;
+        }
+        return `0${minutes}`;
+    }
 
-    // Another way is to have minutes and seconds as seperate states...
-    // We can pass minutes into TimerCard. If so, seconds = seconds - minutes*60;
-    // such that minutes = math.floor(seconds/60) if user puts in a fraction
-
+    const getFormatedSeconds = () => {
+        let sec = seconds - Math.floor(seconds / 60) * 60;
+        if (sec >= 10) {
+            return `${sec}`;
+        }
+        return `0${sec}`;
+     
+    }
+    // CHANGE TO A DIV NOT CARD LATER...  !!!
+    // REFACTOR STYLING... !!!
     return (
         <>
             <Card
@@ -66,10 +70,7 @@ const TimerCard = ({time} : Props) => {
                     boxShadow: "none"
                 }}>
                 <Typography fontSize={200} color="white">
-                
-                    {/* {time} */}
-                    {/* 00:00 */}
-                    {`${Math.floor(seconds / 60)}:${seconds - Math.floor(seconds / 60) *60}`}
+                    {`${getFormatedMinutes()}:${getFormatedSeconds()}`}
                 </Typography>
 
             </Card>
