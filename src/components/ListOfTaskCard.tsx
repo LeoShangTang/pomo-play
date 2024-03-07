@@ -6,16 +6,10 @@ import TaskCard from "./TaskCard";
 const cardStyle = {
     borderRadius: "20px",
     p: 1,
-    height: "250px",
+    height: "270px",
     backgroundColor: "transparent",
-    boxShadow:"none"
-    // "@media (max-width: 600px)": {
-    //   width: "95%",
-    //   height: 400,
-    // },
-    // "@media (max-height: 600px)": {
-    //   height: 350,
-    // },
+    boxShadow:"none",
+    minWidth: "510px"
   };
 
 const ListOfTaskCard = () => {
