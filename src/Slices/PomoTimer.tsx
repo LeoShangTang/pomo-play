@@ -3,14 +3,14 @@ import taskSample from "../SampleData/tasksSample";
 
 // Duration is in minutes
 
-export enum Timers {
-    ShortBreak = "shortBreak",
+export enum TTimers {
+    shortBreak = "shortBreak",
     longBreak = "longBreak",
-    Study = "study",
+    study = "study",
 }
 
 // Time is in minutes
-interface ICountDownTimer {
+interface IPomoTimer {
     StudyTimer: number,
     ShortBreakTimer: number,
     LongBreakTimer: number,
@@ -21,28 +21,30 @@ interface ICountDownTimer {
 // Current time can be a local useState; whereas, switching the timers can be done in store
 // useEffect to update local time state when updating CurrentTimer
 
-const initialState: ICountDownTimer = {
+const initialState: IPomoTimer = {
     StudyTimer: 25,
     ShortBreakTimer: 5,
     LongBreakTimer: 15,
-    CurrentTimer: Timers.Study
+    CurrentTimer: TTimers.study
 };
 
-export const CountDownTimer = createSlice({
-    name: "CountDownTimer",
+export const PomoTimerSlice = createSlice({
+    name: "PomoTimer",
     initialState,
     reducers: {
         changeTimer: (state, action) => {
             const { timer } = action.payload;
-            state.CurrentTimer = timer;
+            console.log(timer.CurrentTimer);
+            // console.log(timer.CurrentTimer);
+            state.CurrentTimer = timer.CurrentTimer;
         },
     },
 })
 
-export default CountDownTimer.reducer;
+export default PomoTimerSlice.reducer;
 
 // export type { IListOfTask, ITask };
 // export const { addTask, removeTask, editTask } = ListOfTaskSlice.actions;
 // export default ListOfTaskSlice.reducer;
-
-export type { ICountDownTimer };
+export const { changeTimer } = PomoTimerSlice.actions;
+export type { IPomoTimer };

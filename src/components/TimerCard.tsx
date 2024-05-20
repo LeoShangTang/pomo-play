@@ -1,6 +1,7 @@
 import { Card, ListItem, Typography, CardContent, CardActions, IconButton, Button} from "@mui/material";
 import { ITask } from "../Slices/ListOfTask";
 import { useEffect, useState } from "react";
+import PomoButtonSwaps from "./PomoButtonSwaps";
 
 type Props = {
     time: number;
@@ -10,8 +11,13 @@ let timerId: NodeJS.Timer | null | undefined =  null;
 
 const TimerCard = ({time} : Props) => {
     
-    const [seconds, setSeconds] = useState(6);
+    const [seconds, setSeconds] = useState(time);
     const [isRunning, setIsRunning] = useState(false);
+
+    useEffect(() => {
+        setSeconds(time);
+        setIsRunning(false);
+    }, [time])
 
     const startTimer = () => (
         timerId = setInterval(() => {
@@ -74,6 +80,7 @@ const TimerCard = ({time} : Props) => {
                 </Typography>
 
             </Card>
+            <PomoButtonSwaps />
             <Button onClick={() => { setIsRunning(!isRunning) }}
             sx={{color:"white"}}>
                 Pause/Start Timer
